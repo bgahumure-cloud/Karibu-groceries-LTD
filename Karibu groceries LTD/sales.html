@@ -1,58 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Sales</title>
+<title>Sales Agent Dashboard</title>
 <style>
-body{font-family:Arial;background:#f5f7fa}
-header{background:#28a745;color:white;padding:15px}
-.container{padding:20px}
-.card{background:white;padding:15px;border-radius:6px}
-input,button{padding:8px;margin:6px;width:100%}
-button{background:#28a745;color:white;border:none}
+body{font-family:Poppins;background:#111;color:#fff;padding:40px}
+h1{color:yellow}
+.card{
+  background:rgba(255,255,255,0.05);
+  padding:20px;
+  border-radius:12px;
+  margin-bottom:20px;
+}
+a{
+  display:block;
+  margin-top:10px;
+  color:yellow;
+  text-decoration:none;
+}
 </style>
 </head>
 <body>
 
-<header>Sales Agent – Record Sale</header>
+<h1>Sales Agent Dashboard</h1>
 
-<div class="container">
 <div class="card">
-<input id="produce" placeholder="Produce Name">
-<input id="qty" placeholder="Tonnage Sold (kg)">
-<input id="amount" placeholder="Amount Paid">
-<input id="buyer" placeholder="Buyer Name">
-<input id="agent" placeholder="Sales Agent Name">
-<button onclick="saveSale()">Save Sale</button>
+<h3>Sell Produce</h3>
+<a href="sell.html">Go to Selling Page</a>
 </div>
 
 <div class="card">
-<h3>Today Sales</h3>
-<ul id="list"></ul>
+<h3>Credit Sales</h3>
+<a href="credit.html">Go to Credit Sales</a>
 </div>
-</div>
-
-<script>
-let sales=[];
-
-function saveSale(){
-  let s={
-    produce:produce.value,
-    qty:qty.value,
-    amount:amount.value,
-    buyer:buyer.value
-  };
-  sales.push(s);
-  render();
-}
-
-function render(){
-  let list=document.getElementById("list");
-  list.innerHTML="";
-  sales.forEach(s=>{
-    list.innerHTML+=`<li>${s.produce} - ${s.qty}kg - UGX ${s.amount}</li>`;
-  });
-}
-</script>
 
 </body>
 </html>

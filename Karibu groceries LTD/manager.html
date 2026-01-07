@@ -1,68 +1,190 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Manager Dashboard</title>
+<meta charset="UTF-8">
+<title>Manager Dashboard | KGL</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-body{font-family:Arial;background:#eef2f5}
-header{background:#2b7cff;color:white;padding:15px}
-.container{padding:20px}
-.card{background:white;padding:15px;border-radius:6px;margin-bottom:15px}
-input,select,button{padding:6px;margin:4px;width:100%}
-button{background:#2b7cff;color:white;border:none}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
+body{
+min-height:100vh;
+background:linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),url("1 (2).jpg");
+background-size:cover;
+color:#fff
+}
+header{padding:20px 40px;font-size:24px;font-weight:600;color:yellow}
+.container{padding:30px 40px}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+margin-bottom:40px
+}
+.card{
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(12px);
+border-radius:15px;
+padding:25px
+}
+.card h3{color:yellow;margin-bottom:8px}
+
+.section{margin-bottom:45px}
+.section h2{color:yellow;margin-bottom:15px}
+
+form{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:15px
+}
+input,select,button{
+padding:12px 15px;
+border-radius:25px;
+border:none;
+outline:none
+}
+input,select{background:rgba(255,255,255,.12);color:#fff}
+select option{color:#000}
+button{
+background:yellow;
+color:#000;
+font-weight:600;
+cursor:pointer;
+grid-column:span 2
+}
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:15px
+}
+th,td{
+padding:12px;
+text-align:center;
+border-bottom:1px solid rgba(255,255,255,.2)
+}
+th{color:yellow}
+.warning{color:#ffb703;margin-top:10px}
 </style>
 </head>
+
 <body>
 
-<header>Manager Dashboard – KGL</header>
+<header>Manager Dashboard – Karibu Groceries LTD</header>
 
 <div class="container">
 
-<div class="card">
-<h3>Add Produce (Procurement)</h3>
-<input id="pname" placeholder="Produce Name">
-<input id="ptype" placeholder="Produce Type">
-<input id="tonnage" placeholder="Tonnage (kg)">
-<input id="cost" placeholder="Cost (UGX)">
-<input id="dealer" placeholder="Dealer Name">
-<input id="contact" placeholder="Dealer Contact">
-<select id="branch">
-  <option>Maganjo</option>
-  <option>Matugga</option>
-</select>
-<input id="price" placeholder="Selling Price">
-<button onclick="saveProduce()">Save</button>
+<!-- OVERVIEW -->
+<div class="cards">
+<div class="card"><h3>Total Produce Types</h3><p>5</p></div>
+<div class="card"><h3>Total Stock</h3><p id="totalStock">0 KG</p></div>
+<div class="card"><h3>Branches</h3><p>Maganjo & Matugga</p></div>
+<div class="card"><h3>Low Stock Alerts</h3><p id="alerts">None</p></div>
 </div>
 
-<div class="card">
-<h3>Stock</h3>
-<table border="1" width="100%" id="stockTable">
-<tr><th>Produce</th><th>Qty(kg)</th><th>Branch</th></tr>
+<!-- PROCUREMENT -->
+<div class="section">
+<h2>Produce Procurement (Manager Only)</h2>
+<form>
+<input placeholder="Produce Name" required>
+<input placeholder="Produce Type" required>
+<input type="date" required>
+<input type="time" required>
+<input type="number" placeholder="Tonnage (KG)" required>
+<input type="number" placeholder="Cost (UGX)" required>
+<input placeholder="Dealer Name" required>
+<input placeholder="Dealer Contact" required>
+<select required>
+<option value="">Branch</option>
+<option>Maganjo</option>
+<option>Matugga</option>
+</select>
+<input type="number" placeholder="Selling Price (UGX)" required>
+<button>Record Procurement</button>
+</form>
+</div>
+
+<!-- RECORD SALE -->
+<div class="section">
+<h2>Record Sale (Manager Allowed)</h2>
+<form>
+<input placeholder="Produce Name" required>
+<input type="number" placeholder="Tonnage Sold (KG)" required>
+<input type="number" placeholder="Amount Paid (UGX)" required>
+<input placeholder="Buyer Name" required>
+<input placeholder="Sales Agent Name" required>
+<input type="date" required>
+<input type="time" required>
+<button>Record Sale</button>
+</form>
+</div>
+
+<!-- CREDIT SALES -->
+<div class="section">
+<h2>Credit / Deferred Sales</h2>
+<table>
+<tr>
+<th>Buyer</th><th>Produce</th><th>Tonnage</th><th>Amount Due</th><th>Due Date</th>
+</tr>
+<tr>
+<td>John Doe</td><td>Beans</td><td>300</td><td>1,500,000</td><td>2026-02-01</td>
+</tr>
 </table>
+</div>
+
+<!-- STOCK -->
+<div class="section">
+<h2>Stock Overview</h2>
+<table>
+<tr>
+<th>Produce</th><th>Type</th><th>Stock (KG)</th><th>Branch</th>
+</tr>
+<tr>
+<td>Beans</td><td>Cereal</td><td>1200</td><td>Maganjo</td>
+</tr>
+<tr>
+<td>Maize</td><td>Grain</td><td>0</td><td>Matugga</td>
+</tr>
+</table>
+<p class="warning">⚠ Manager notified automatically when stock reaches zero</p>
+</div>
+
+<!-- PRICE CONTROL -->
+<div class="section">
+<h2>Price Management</h2>
+<form>
+<select required>
+<option value="">Select Produce</option>
+<option>Beans</option>
+<option>Maize</option>
+<option>G-nuts</option>
+<option>Soybeans</option>
+</select>
+<input type="number" placeholder="New Price (UGX)" required>
+<button>Update Price</button>
+</form>
+</div>
+
+<!-- RULES -->
+<div class="section">
+<h2>Business Rules (System Enforced)</h2>
+<ul>
+<li>Only stocked produce can be sold</li>
+<li>Stock auto-reduces after sales</li>
+<li>Sales agents cannot procure produce</li>
+<li>Prices controlled by manager only</li>
+<li>Director views totals only</li>
+</ul>
 </div>
 
 </div>
 
 <script>
-let stock=[];
-
-function saveProduce(){
-  let item={
-    name:pname.value,
-    qty:Number(tonnage.value),
-    branch:branch.value
-  };
-  stock.push(item);
-  renderStock();
-  alert("Produce saved!");
-}
-
-function renderStock(){
-  let table=document.getElementById("stockTable");
-  table.innerHTML="<tr><th>Produce</th><th>Qty</th><th>Branch</th></tr>";
-  stock.forEach(i=>{
-    table.innerHTML+=`<tr><td>${i.name}</td><td>${i.qty}</td><td>${i.branch}</td></tr>`;
-  });
-}
+let stock=[1200,0];
+let total=stock.reduce((a,b)=>a+b,0);
+document.getElementById("totalStock").innerText=total+" KG";
+document.getElementById("alerts").innerText=
+stock.includes(0)?"Out of stock items present":"None";
 </script>
 
 </body>

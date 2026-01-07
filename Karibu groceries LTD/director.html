@@ -1,45 +1,107 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Director Dashboard</title>
+<meta charset="UTF-8">
+<title>Director Dashboard | KGL</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-body{font-family:Arial;background:#e3f2fd}
-header{background:#0d47a1;color:white;padding:15px}
-.container{padding:20px}
-.card{background:white;padding:15px;border-radius:6px;margin-bottom:10px}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Poppins", sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:
+    linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+    url("1 (2).jpg");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  color:#fff;
+  padding:40px;
+}
+
+/* HEADER */
+header{
+  text-align:center;
+  font-size:28px;
+  font-weight:600;
+  color:yellow;
+  margin-bottom:30px;
+}
+
+/* DASHBOARD GRID */
+.dashboard{
+  max-width:1000px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+}
+
+/* CARD */
+.card{
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(12px);
+  padding:25px;
+  border-radius:18px;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+}
+
+.card h3{
+  color:yellow;
+  margin-bottom:10px;
+}
+
+.card p{
+  font-size:22px;
+  font-weight:600;
+}
+
+.note{
+  text-align:center;
+  margin-top:30px;
+  font-size:14px;
+  color:#ffeb3b;
+}
+
 </style>
 </head>
+
 <body>
 
-<header>Director – Aggregated Reports</header>
+<header>Director Dashboard – Aggregated Reports</header>
 
-<div class="container">
-<div class="card">
-<h3>Total Sales</h3>
-<p id="total">UGX 0</p>
+<div class="dashboard">
+
+  <div class="card">
+    <h3>Total Sales</h3>
+    <p>UGX 1,300,000</p>
+  </div>
+
+  <div class="card">
+    <h3>Total Tonnage Sold</h3>
+    <p>550 KG</p>
+  </div>
+
+  <div class="card">
+    <h3>Total Credit Outstanding</h3>
+    <p>UGX 400,000</p>
+  </div>
+
 </div>
 
-<div class="card">
-<h3>Total Tonnage Sold</h3>
-<p id="tons">0 kg</p>
-</div>
-</div>
-
-<script>
-let demoSales=[
-  {amount:500000,qty:200},
-  {amount:800000,qty:350}
-];
-
-let total=0, tons=0;
-demoSales.forEach(s=>{
-  total+=s.amount;
-  tons+=s.qty;
-});
-
-document.getElementById("total").innerText="UGX "+total;
-document.getElementById("tons").innerText=tons+" kg";
-</script>
+<p class="note">
+✔ Director can view totals only (no individual transactions)
+</p>
 
 </body>
 </html>
