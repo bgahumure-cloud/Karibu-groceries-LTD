@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Manager Dashboard</title>
+<style>
+body{font-family:Arial;background:#eef2f5}
+header{background:#2b7cff;color:white;padding:15px}
+.container{padding:20px}
+.card{background:white;padding:15px;border-radius:6px;margin-bottom:15px}
+input,select,button{padding:6px;margin:4px;width:100%}
+button{background:#2b7cff;color:white;border:none}
+</style>
+</head>
+<body>
+
+<header>Manager Dashboard – KGL</header>
+
+<div class="container">
+
+<div class="card">
+<h3>Add Produce (Procurement)</h3>
+<input id="pname" placeholder="Produce Name">
+<input id="ptype" placeholder="Produce Type">
+<input id="tonnage" placeholder="Tonnage (kg)">
+<input id="cost" placeholder="Cost (UGX)">
+<input id="dealer" placeholder="Dealer Name">
+<input id="contact" placeholder="Dealer Contact">
+<select id="branch">
+  <option>Maganjo</option>
+  <option>Matugga</option>
+</select>
+<input id="price" placeholder="Selling Price">
+<button onclick="saveProduce()">Save</button>
+</div>
+
+<div class="card">
+<h3>Stock</h3>
+<table border="1" width="100%" id="stockTable">
+<tr><th>Produce</th><th>Qty(kg)</th><th>Branch</th></tr>
+</table>
+</div>
+
+</div>
+
+<script>
+let stock=[];
+
+function saveProduce(){
+  let item={
+    name:pname.value,
+    qty:Number(tonnage.value),
+    branch:branch.value
+  };
+  stock.push(item);
+  renderStock();
+  alert("Produce saved!");
+}
+
+function renderStock(){
+  let table=document.getElementById("stockTable");
+  table.innerHTML="<tr><th>Produce</th><th>Qty</th><th>Branch</th></tr>";
+  stock.forEach(i=>{
+    table.innerHTML+=`<tr><td>${i.name}</td><td>${i.qty}</td><td>${i.branch}</td></tr>`;
+  });
+}
+</script>
+
+</body>
+</html>

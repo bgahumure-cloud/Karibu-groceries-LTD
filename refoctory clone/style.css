@@ -1,0 +1,271 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: #f8f9fb;
+  color: #333;
+}
+
+/* HEADER */
+.main-header {
+  width: 100%;
+  height: 90px;
+  background: url("pic1.png") no-repeat center center/cover; 
+}
+
+
+.header-container {
+  max-width: 1200px;
+  margin: auto;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+}
+
+.logo span {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.logo { 
+  color: black; 
+size: 9px;
+}
+.logo1{
+  image-
+}
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 18px;
+}
+
+.nav-menu li {
+  color: #222;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.arrow {
+  font-size: 10px;
+  margin-left: 4px;
+}
+
+.search-btn {
+  width: 42px;
+  height: 42px;
+  background: #c6ff00;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* ================= HERO ================= */
+.hero {
+  position: relative;
+  height: 90vh;
+  overflow: hidden;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(60%);
+}
+
+.hero-content {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  max-width: 800px;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ================= BUTTONS ================= */
+.btn {
+  text-decoration: none;
+  padding: 12px 22px;
+  border-radius: 6px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.purple { background: #6b2c91; color: white; }
+.yellow { background: #c7cf2f; color: #000; }
+.white  { background: white; color: #333; }
+
+/* ================= ABOUT ================= */
+.about {
+  display: flex;
+  gap: 40px;
+  padding: 60px 10%;
+  align-items: center;
+  background: white;
+}
+
+.about-text { flex: 1; }
+
+.about-text h2 {
+  color: #6b2c91;
+  font-size: 2rem;
+}
+
+.about-text h3 {
+  color: #2bb7b1;
+  margin: 10px 0 20px;
+}
+
+.about-text p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.about-image { flex: 1; }
+
+.about-image img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* ================= COURSES ================= */
+.courses {
+  padding: 60px 10%;
+  text-align: center;
+}
+
+.courses h2 {
+  font-size: 2.2rem;
+  color: #6b2c91;
+  margin-bottom: 40px;
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.course-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.course-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.course-card h3 {
+  padding: 15px;
+  color: #6b2c91;
+}
+
+.course-card p {
+  padding: 0 15px 15px;
+  line-height: 1.5;
+}
+
+.course-card .btn {
+  margin: 0 15px 20px;
+  display: inline-block;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+  background: #2C1A4D;
+  color: white;
+  padding: 60px 10% 20px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.footer-column h3 {
+  color: #00BFA5;
+  margin-bottom: 15px;
+}
+
+.footer-column p,
+.footer-column li,
+.footer-column a {
+  color: white;
+  margin-bottom: 8px;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.social-icons {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.social {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #555;
+  border-radius: 50%;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.social.facebook { background: #3b5998; }
+.social.twitter { background: #1da1f2; }
+.social.instagram { background: #e1306c; }
+.social.linkedin { background: #0077b5; }
+.social.youtube { background: #ff0000; }
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 14px;
+}

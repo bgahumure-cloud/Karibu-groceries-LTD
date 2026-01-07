@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Coffee Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+    body {
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+    url("1 (2).jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+}
+
+      
+
+      nav a:hover {
+        color: yellow;
+      }
+
+      /* MAIN SECTION */
+      .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 80px;
+        gap: 60px;
+      }
+
+      /* LEFT CONTENT */
+      .left {
+        max-width: 550px;
+      }
+
+      .left h1 {
+        font-size: 48px;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+
+      .left p {
+        font-size: 15px;
+        color: #ddd;
+        line-height: 1.8;
+        margin-bottom: 30px;
+      }
+
+      .btn {
+        padding: 12px 30px;
+        background: transparent;
+        border: 2px solid #fff;
+        color: #fff;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: 0.3s;
+        font-size: 15px;
+      }
+
+      .btn:hover {
+        background: #c49b63;
+        border-color: #c49b63;
+      }
+
+      /* LOGIN CARD */
+      .login-box {
+        width: 380px;
+
+        padding: 35px;
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+      }
+
+      .login-box h2 {
+        text-align: center;
+        margin-bottom: 25px;
+        font-weight: 600;
+      }
+
+      .input-group {
+        margin-bottom: 18px;
+      }
+
+      .input-group input {
+        width: 100%;
+        padding: 14px;
+        border-radius: 30px;
+        border: none;
+        outline: none;
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        padding-left: 20px;
+      }
+
+      .input-group input::placeholder {
+        color: #ccc;
+      }
+
+      .options {
+        display: flex;
+        justify-content: space-between;
+        font-size: 13px;
+        margin-bottom: 20px;
+      }
+
+      .options label {
+        cursor: pointer;
+      }
+
+      .options a {
+        color: yellow;
+        text-decoration: none;
+      }
+
+      .login-btn {
+        width: 100%;
+        padding: 12px;
+        background: yellow;
+        border: none;
+        border-radius: 30px;
+        color: #fff;
+        font-size: 15px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .login-btn:hover {
+        background: #c49b63;
+      }
+
+      .signup {
+        text-align: center;
+        margin-top: 18px;
+        font-size: 13px;
+      }
+
+      .signup a {
+        color: yellow;
+        text-decoration: none;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 900px) {
+        .container {
+          flex-direction: column;
+          padding: 40px;
+        }
+
+        header {
+          padding: 20px 40px;
+        }
+
+        nav {
+          display: none;
+        }
+
+        .left h1 {
+          font-size: 38px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <section class="container">
+      <div class="left">
+        <h1 style="color: yellow;">Karibu groceries LTD</h1>
+        <p>
+         Wholesale Management System,
+          Welcome to Karibu Groceries LTD  Digitizing Operations from Manual
+          Records to a Smart Wholesale Management System.
+        </p>
+        <button class="btn">Get Started</button>
+      </div>
+
+      <div class="login-box">
+        <h2>Member Login</h2>
+
+        <div class="input-group">
+          <input type="email" placeholder="Enter your email" />
+        </div>
+
+        <div class="input-group">
+          <input type="password" placeholder="Enter your password" />
+        </div>
+
+       <select id="role" class="input-group">
+  <option value="">Select Role</option>
+  <option value="Manager">Manager</option>
+  <option value="Sales Agent">Sales Agent</option>
+  <option value="Director">Director</option>
+</select>
+
+
+        <div class="options">
+          <label> <input type="checkbox" /> Remember me </label>
+          <a href="#">Forgot Password?</a>
+        </div>
+
+        <button class="login-btn" onclick="login()">Login</button>
+
+        <div class="signup">Not a member? <a href="#">Sign up now</a></div>
+
+
+
+  <script>
+function login() {
+  let role = document.getElementById("role").value;
+
+  if (role === "Manager") {
+    window.location.href = "manager.html";
+  } 
+  else if (role === "Sales Agent") {
+    window.location.href = "sales.html";
+  } 
+  else if (role === "Director") {
+    window.location.href = "director.html";
+  } 
+  else {
+    alert("Please select a role");
+  }
+}
+</script>
+
+      </div>
+    </section>
+  </body>
+</html>

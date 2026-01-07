@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Director Dashboard</title>
+<style>
+body{font-family:Arial;background:#e3f2fd}
+header{background:#0d47a1;color:white;padding:15px}
+.container{padding:20px}
+.card{background:white;padding:15px;border-radius:6px;margin-bottom:10px}
+</style>
+</head>
+<body>
+
+<header>Director – Aggregated Reports</header>
+
+<div class="container">
+<div class="card">
+<h3>Total Sales</h3>
+<p id="total">UGX 0</p>
+</div>
+
+<div class="card">
+<h3>Total Tonnage Sold</h3>
+<p id="tons">0 kg</p>
+</div>
+</div>
+
+<script>
+let demoSales=[
+  {amount:500000,qty:200},
+  {amount:800000,qty:350}
+];
+
+let total=0, tons=0;
+demoSales.forEach(s=>{
+  total+=s.amount;
+  tons+=s.qty;
+});
+
+document.getElementById("total").innerText="UGX "+total;
+document.getElementById("tons").innerText=tons+" kg";
+</script>
+
+</body>
+</html>

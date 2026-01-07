@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Credit Sales</title>
+<style>
+body{font-family:Arial;background:#fff3e0}
+header{background:#ff9800;color:white;padding:15px}
+.container{padding:20px}
+.card{background:white;padding:15px;border-radius:6px}
+input,button{padding:8px;margin:5px;width:100%}
+button{background:#ff9800;color:white;border:none}
+</style>
+</head>
+<body>
+
+<header>Credit Sales</header>
+
+<div class="container">
+<div class="card">
+<input id="buyer" placeholder="Buyer Name">
+<input id="nin" placeholder="National ID (NIN)">
+<input id="location" placeholder="Location">
+<input id="contact" placeholder="Contact">
+<input id="amount" placeholder="Amount Due">
+<input id="agent" placeholder="Sales Agent">
+<input id="produce" placeholder="Produce Name">
+<input id="tonnage" placeholder="Tonnage">
+<input id="duedate" type="date">
+<button onclick="saveCredit()">Save Credit Record</button>
+</div>
+
+<div class="card">
+<h3>Credit Records</h3>
+<ul id="records"></ul>
+</div>
+</div>
+
+<script>
+let credits=[];
+
+function saveCredit(){
+  let c={
+    buyer:buyer.value,
+    amount:amount.value,
+    produce:produce.value
+  };
+  credits.push(c);
+  render();
+}
+
+function render(){
+  let r=document.getElementById("records");
+  r.innerHTML="";
+  credits.forEach(c=>{
+    r.innerHTML+=`<li>${c.buyer} owes UGX ${c.amount} for ${c.produce}</li>`;
+  });
+}
+</script>
+
+</body>
+</html>
